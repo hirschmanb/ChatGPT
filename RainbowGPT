@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        background-size: 200% 100%;
+        animation: rainbow 5s ease infinite;
+      }
+
+      @keyframes rainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+      }
+
+      .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        padding: 20px 40px;
+        border-radius: 50px;
+        background-color: white;
+        border: 2px solid black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn" id="toggleBtn">Toggle Rainbow/Black & White</button>
+    <script>
+      const toggleBtn = document.querySelector("#toggleBtn");
+      let isRainbow = true;
+      toggleBtn.addEventListener("click", function () {
+        if (isRainbow) {
+          document.body.style.backgroundImage = "linear-gradient(to right, black, white)";
+          toggleBtn.innerHTML = "Bring Back the Rainbow!";
+        } else {
+          document.body.style.backgroundImage = "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)";
+          toggleBtn.innerHTML = "Toggle Rainbow/Black & White";
+        }
+        isRainbow = !isRainbow;
+      });
+    </script>
+  </body>
+</html>
